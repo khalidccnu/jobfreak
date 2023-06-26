@@ -122,3 +122,30 @@ section {
     font-size: 2.3rem;
     margin-top: 1rem;
 }
+
+/* ===== Guide ===== */
+#guide {
+    display: flex;
+    align-items: center;
+    padding-right: 10rem;
+    padding-left: 10rem;
+    color: #0E2954;
+}
+
+.guide h3 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.guide .correct span {
+    color: #008000;
+}
+
+.guide .wrong span {
+    color: #ff0000;
+}
+
+.guide ul {
+    font-size: 2.3rem;
+    margin-top: 1rem;
+}
