@@ -6,6 +6,7 @@
 
 :root {
     font-size: 62.5%;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -19,6 +20,10 @@ body {
 section {
     min-height: 100vh;
     padding: 3rem 0;
+    scroll-snap-align: start;
+    transition-property: scroll-snap-align;
+    transition-timing-function: linear;
+    transition-duration: 500ms;
 }
 
 .container {
@@ -81,7 +86,7 @@ section {
     background-color: #f3f0f0;
     text-transform: capitalize;
     text-align: center;
-    z-index: 999;
+    z-index: 99;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -133,6 +138,10 @@ section {
     background-color: #1F6E8C;
 }
 
+.menu {
+    display: none;
+}
+
 /* ===== Home ===== */
 #home {
     display: flex;
@@ -170,9 +179,13 @@ section {
     color: #0E2954;
 }
 
-.row {
+.guide .row {
     display: flex;
     justify-content: space-between;
+}
+
+.guide .wrong {
+    margin-left: 1rem;
 }
 
 .guide h3 {
@@ -303,4 +316,103 @@ section {
 
 .contact textarea {
     resize: none;
+}
+
+/* ===== Media Query ===== */
+@media screen and (max-width: 1210px) {
+    /* ===== About ===== */
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .left {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+
+    .about .right {
+        flex-basis: 100%;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    /* ===== Home ===== */
+    #home {
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    /* ===== Contact ===== */
+    .contact form div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .contact form div:nth-child(2) {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        margin-left: 0;
+        width: 100vw;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+        left: -120%;
+        transition-property: left;
+        transition-duration: 500ms;
+    }
+
+    .sidebar.toggle {
+        left: 0;
+    }
+
+    .menu {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        display: initial;
+        z-index: 999;
+    }
+
+    .sidebar-toggler {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sidebar-toggler-icon {
+        color: #0E2954;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* ===== Sidebar ===== */
+    .sidebar {
+        width: 100vw;
+    }
+
+    /* ===== Guide ===== */
+    .guide .row {
+        flex-direction: column;
+    }
+
+    .guide .wrong {
+        margin-left: 0;
+    }
+
+    /* ===== Contact ===== */
+    .contact form div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .contact form div:nth-child(2) {
+        grid-column: 1 / -1;
+    }
 }
