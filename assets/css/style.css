@@ -61,6 +61,11 @@ section {
     text-decoration: none;
 }
 
+.btn-not-link {
+    border-width: 0;
+    cursor: pointer;
+}
+
 /* ===== Sidebar ===== */
 .sidebar {
     position: fixed;
@@ -248,4 +253,54 @@ section {
 .about .box h3 {
     font-size: 2rem;
     margin-bottom: 0;
+}
+
+/* ===== Contact ===== */
+#contact {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-transform: capitalize;
+}
+
+.contact form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.contact label {
+    display: none;
+}
+
+.contact form div:nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+.contact form div:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+.contact form div:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.contact input, .contact textarea {
+    color: #0E2954;
+    font-family: inherit;
+    font-size: 1.7rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #0E2954;
+    border-radius: 1rem;
+}
+
+.contact input:focus, .contact textarea:focus {
+    outline: none;
+}
+
+.contact textarea {
+    resize: none;
 }
